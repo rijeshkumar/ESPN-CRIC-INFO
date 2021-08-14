@@ -35,5 +35,20 @@ async def matches(c, m):
         k += 2
 
     response = await response.edit_text(Translation.MATCHES.format(ms))
+    matchChoice = await c.ask(
+        text = "Send match number 🔢 to get details",
+        chat_id = m.chat.id,
+        reply_markup=ForceReply(True)
+    )
 
+    ch = int(matchChoice.text)
+    liveLink = status[ch].parent
+    liveLink = Config.URL+liveLink.get("href")
     
+    liveScore = await c.send_message(
+        chat_id=m.chat.id,
+        text = liveLink
+    )
+    print(liveLink)
+    liveDetails = requests.get(liveLink)
+    liveDetails = bs4.BeautifulSoup(liveDetails.text,"html5lib")
