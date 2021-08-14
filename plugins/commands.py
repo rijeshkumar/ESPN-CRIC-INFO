@@ -11,10 +11,11 @@ async def start(c,m):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton('OWNER 👨‍💻', url='https://t.me/{}'.format(Config.OWNER_USERNAME))
+                InlineKeyboardButton('OWNER 👨‍💻', url='https://t.me/{}'.format(Config.OWNER_USERNAME)),
+                InlineKeyboardButton('HELP', callback_data="help_data" )
             ],
             [
-                InlineKeyboardButton('HELP', callback_data="help_data" ),
+                InlineKeyboardButton('ABOUT', callback_data="about_data" ),
                 InlineKeyboardButton(f'CLOSE {CROSS_MARK}',callback_data="close_data" )
             ]
         ]
@@ -41,4 +42,13 @@ async def help(c,m):
         text=str,
         reply_to_message_id=m.message_id,
         reply_markup=keyboard
+    )
+
+@YO.on_message(filters.command(['about']))
+async def about(c,m):
+    str = Translation.ABOUTTEXT
+    await c.send_message(
+        chat_id=m.chat.id,
+        text=str,
+        reply_to_message_id=m.message_id
     )
