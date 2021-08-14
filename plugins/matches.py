@@ -27,10 +27,11 @@ async def matches(c, m):
     description = espn.select(".match-info.match-info-HSB.card.scorecard .status-text")
     print(len(teams))
     print(len(description))
+    ko = len(description)
     k = 0
     j = 0
     ms=''
-    for i in range(11):
+    for i in range(ko):
         ms += f"\n\n{Translation.NUMS[i]}  **{status[i].text}**\n{teams[k].text}  Vs. {teams[k+1].text}\n{description[i].text}"
         k += 2
 
