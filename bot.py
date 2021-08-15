@@ -1,9 +1,6 @@
-import pyrogram
 from pyromod import listen
 from pyrogram import Client
-
-
-from config import Config, Translation
+from config import Config
 
 app = Client (
     session_name='ESPN',
