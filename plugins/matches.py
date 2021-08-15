@@ -3,6 +3,7 @@ import bs4
 import requests
 from bot import app
 from bs4 import BeautifulSoup
+from .tools.live import live_match
 from config import Config, Translation
 from pyrogram import Client as YO
 from pyrogram import filters
@@ -45,11 +46,4 @@ async def matches(c, m):
     ch = int(matchChoice.text)
     liveLink = status[ch].parent
     liveLink = Config.URL+liveLink.get("href")
-    
-    liveScore = await c.send_message(
-        chat_id=m.chat.id,
-        text = liveLink
-    )
-    print(liveLink)
-    liveDetails = requests.get(liveLink)
-    liveDetails = bs4.BeautifulSoup(liveDetails.text,"html5lib")
+    result = await live_match(c,m,liveLink)
