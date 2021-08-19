@@ -3,6 +3,7 @@ from pyrogram import filters,Client as YO
 from pyrogram.types import ( InlineKeyboardButton,InlineKeyboardMarkup)
 from config import Config,Translation
 from pyrogram.emoji import *
+from plugins.matches import matches
 
 
 @YO.on_message(filters.command(['start']))
@@ -52,3 +53,9 @@ async def about(c,m):
         text=str,
         reply_to_message_id=m.message_id
     )
+
+
+@YO.on_message(filters.command(['matches']))
+async def match(c,m):
+    go = await matches(c,m)
+
