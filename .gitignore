@@ -3,4 +3,4 @@ __pycache__
 *.session
 *.session-journal
 testing.py
-
+config.py
