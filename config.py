@@ -1,11 +1,6 @@
 class Config(object):
     URL = "https://www.espncricinfo.com"
     LIVEURL = ""
-    API_HASH = ""
-    APP_ID = ""
-    TG_BOT_TOKEN = ""
-    OWNER=""
-    USERNAME = ""
 
 
 class Translation(object):
@@ -23,3 +18,6 @@ This is a web scraping bot, to fetch cricket scores ```from www.espncricinfo.com
     ABOUTTEXT = '''
 try /matches instead'''
     NUMS = ['0️⃣','1️⃣','2️⃣','3️⃣','4️⃣','5️⃣','6️⃣','7️⃣','8️⃣','9️⃣','🔟']
+    MATCHES = '''
+Matches on the board are:\n
+{}'''
