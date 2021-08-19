@@ -1,12 +1,8 @@
-import re
 import bs4
 import requests
 from bot import app
-from bs4 import BeautifulSoup
 from .tools.live import live_match
 from config import Config, Translation
-from pyrogram import Client as YO
-from pyrogram import filters
 from pyrogram.emoji import *
 from pyrogram.types import (ForceReply, InlineKeyboardButton,InlineKeyboardMarkup)
 
@@ -16,7 +12,6 @@ status = espn.select(".match-info.match-info-HSB.card.scorecard .status")
 teams = espn.select(".match-info.match-info-HSB.card.scorecard .teams .team .name-detail .name")
 
 
-@YO.on_message(filters.command(['matches']))
 async def matches(c, m):
     response = await c.send_message(
     chat_id=m.chat.id,
