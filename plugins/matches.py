@@ -5,7 +5,6 @@ from .tools.live import live_match
 from config import Config, Translation
 from pyrogram.emoji import *
 from pyrogram.types import (ForceReply, InlineKeyboardButton,InlineKeyboardMarkup)
-
 espn = requests.get(Config.URL)
 espn = bs4.BeautifulSoup(espn.text, "html5lib")
 status = espn.select(".match-info.match-info-HSB.card.scorecard .status")
