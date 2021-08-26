@@ -57,5 +57,4 @@ async def about(c,m):
 
 @YO.on_message(filters.command(['matches']))
 async def match(c,m):
-    go = await matches(c,m)
-
+    mCall = await matches(c,m)

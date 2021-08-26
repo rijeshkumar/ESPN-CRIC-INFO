@@ -29,6 +29,7 @@ async def cb_handler(client,query):
             disable_web_page_preview=True
         )
         return
+
     elif query.data == "help_data":
         await query.answer()
         str=Translation.HELPTEXT
@@ -45,8 +46,10 @@ async def cb_handler(client,query):
             disable_web_page_preview = True
         )
         return
+
     elif query.data == "close_data":
         await query.message.delete()
+
     elif query.data == "about_data":
         await query.answer()
         str = Translation.ABOUTTEXT
@@ -54,6 +57,7 @@ async def cb_handler(client,query):
             text=str,
             disable_web_page_preview=True
         )
+
     elif query.data == 'live_refresh':
         await query.answer()
         con = ''
