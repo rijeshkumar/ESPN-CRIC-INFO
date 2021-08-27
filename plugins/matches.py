@@ -10,7 +10,6 @@ espn = bs4.BeautifulSoup(espn.text, "html5lib")
 status = espn.select(".match-info.match-info-HSB.card.scorecard .status")
 teams = espn.select(".match-info.match-info-HSB.card.scorecard .teams .team .name-detail .name")
 
-
 async def matches(c, m):
     response = await c.send_message(
     chat_id=m.chat.id,
